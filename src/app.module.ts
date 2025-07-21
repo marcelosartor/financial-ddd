@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { BaseModule } from './base/base.module';
-import { ContasAPagarModule } from './contas-a-pagar/contas-a-pagar.module';
-import { ContasAReceberModule } from './contas-a-receber/contas-a-receber.module';
-import { MovimentoBancarioModule } from './movimento-bancario/movimento-bancario.module';
+import { AccountsPayableModule } from './accounts-payable/accounts-payable.module';
+import { AccountsReceivableModule } from './accounts-receivable/accounts-receivable.module';
+import { BankingMovementModule } from './banking-movement/banking-movement.module';
 
 @Module({
-  imports: [BaseModule, ContasAPagarModule, ContasAReceberModule, MovimentoBancarioModule],
+  imports: [BaseModule, AccountsPayableModule, AccountsReceivableModule, BankingMovementModule],
   controllers: [],
   providers: [],
 })

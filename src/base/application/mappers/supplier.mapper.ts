@@ -3,9 +3,9 @@ import { InputSupplierDto } from "../dto/input/input-supplier.dto"
 import { plainToClass } from "class-transformer"
 import { OutputSupplierDto } from "../dto/output/output-supplier.dto"
 import { Injectable } from "@nestjs/common"
-import { Address } from "src/base/domain/models/address.vo"
-import { ZipCode } from "src/base/domain/models/zip-code.vo"
-import { State } from "src/base/domain/models/state.vo"
+import { Address } from "src/base/domain/value-objects/address.vo"
+import { ZipCode } from "src/base/domain/value-objects/zip-code.vo"
+import { State } from "src/base/domain/value-objects/state.vo"
 
 @Injectable()
 export class SupplierMapper {
@@ -17,7 +17,7 @@ export class SupplierMapper {
     entity.corporateName = supplierDto.corporateName;
     entity.tradeName = supplierDto.tradeName;
     entity.nationalLegalEntityCode = supplierDto.nationalLegalEntityCode;
-    entity.address = new Address(
+    entity.address = Address.build(
       supplierDto.address,
       supplierDto.number,
       supplierDto.city,

@@ -103,3 +103,11 @@ Utilizado para mappers entre outros
 ```bash
 $ npm i --save class-transformer
 ```
+
+## Nest TypeOrm
+#### https://typeorm.io/
+Utilizado para conversao objeto relacional 
+
+```bash
+$ npm install --save typeorm @nestjs/typeorm sqlite3
+$ npm install better-sqlite3

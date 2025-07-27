@@ -1,11 +1,20 @@
-import { Address } from "../models/address.vo"
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Address } from "../value-objects/address.vo";
 
-export class Supplier{
-    id: number=-1
+@Entity()
+export class Supplier {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    corporateName:string
-    tradeName:string
-    nationalLegalEntityCode:string
-   
-    address: Address
+  @Column()
+  corporateName: string;
+
+  @Column()
+  tradeName: string;
+
+  @Column()
+  nationalLegalEntityCode: string;
+
+  @Column(type => Address,{prefix:false})
+  address: Address;
 }

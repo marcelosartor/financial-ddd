@@ -9,12 +9,15 @@ import { Supplier } from './domain/entities/supplier.entity';
 import { DatabaseModule } from 'src/core/database/database.module';
 import { GetAllSupplierController } from './application/controllers/get-all-supplier.controller';
 import { FindAllSupplierService } from './domain/services/find-all-supplier.service';
+import { SupplierCreatedListener } from './infra/listener/supplier-created.listener';
+import { MessagesModule } from 'src/core/messages/messages.module';
 
 
 @Module({
   
   imports:[
     DatabaseModule,
+    MessagesModule,
     TypeOrmModule.forFeature([Supplier])
   ],
   controllers: [PostCreateSupplierController, GetAllSupplierController],
@@ -22,6 +25,7 @@ import { FindAllSupplierService } from './domain/services/find-all-supplier.serv
     CreateSupplierService, 
     SupplierMapper,
     FindAllSupplierService,
+    SupplierCreatedListener,
     { provide: SUPPLIER_REPOSITORY, useClass: SupplierRepositoryImpl}
     
   ],

@@ -4,9 +4,19 @@ import { AccountsPayableModule } from './accounts-payable/accounts-payable.modul
 import { AccountsReceivableModule } from './accounts-receivable/accounts-receivable.module';
 import { BankingMovementModule } from './banking-movement/banking-movement.module';
 import { DatabaseModule } from './core/database/database.module';
+import { MessagesModule } from './core/messages/messages.module';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 
 @Module({
-  imports: [BaseModule, AccountsPayableModule, AccountsReceivableModule, BankingMovementModule, DatabaseModule],
+  imports: [
+    EventEmitterModule.forRoot(),
+    BaseModule, 
+    AccountsPayableModule, 
+    AccountsReceivableModule, 
+    BankingMovementModule, 
+    DatabaseModule, 
+    MessagesModule
+  ],
   controllers: [],
   providers: [],
 })

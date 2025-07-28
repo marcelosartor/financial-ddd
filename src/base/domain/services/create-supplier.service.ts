@@ -1,6 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Supplier } from '../entities/supplier.entity';
 import { SUPPLIER_REPOSITORY, SupplierRepository } from '../repository/supplier.repository.interface';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { SupplierCreatedEvent } from '../event/supplier-created.event';
 
 
 @Injectable()
@@ -8,6 +10,7 @@ export class CreateSupplierService {
     constructor(
         @Inject(SUPPLIER_REPOSITORY)
         private readonly supplierRepository: SupplierRepository,
+        private eventEmitter: EventEmitter2,
       ) {}
 
     async create(supplier: Supplier): Promise<Supplier> {
@@ -22,7 +25,11 @@ export class CreateSupplierService {
     }
 
     async sendMessageThatCreatedANewSupplier(supplier: Supplier){
-        console.log('enviando email')
-        return supplier
+        const event = new SupplierCreatedEvent(
+            supplier.id,
+            supplier.corporateName,
+            new Date()
+        )
+        this.eventEmitter.emit('event.supplier-created',event)
     }
 }

@@ -111,3 +111,11 @@ Utilizado para conversao objeto relacional
 ```bash
 $ npm install --save typeorm @nestjs/typeorm sqlite3
 $ npm install better-sqlite3
+```
+
+## Nest Event-Emitter
+#### https://mikemcl.github.io/big.js/#
+
+```bash
+$ npm install @nestjs/event-emitter
+```

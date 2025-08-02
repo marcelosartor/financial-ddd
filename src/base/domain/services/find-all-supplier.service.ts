@@ -12,9 +12,8 @@ export class FindAllSupplierService {
     
     async findAll(): Promise<Supplier[]> {
         console.log('list all supplier')
-        const a =  await this.supplierRepository.findAll()
-        console.log(a)
-        return  a
+        const suppliers =  await this.supplierRepository.findAll()
+        return suppliers
     }
         
 }

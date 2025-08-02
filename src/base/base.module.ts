@@ -29,6 +29,7 @@ import { MessagesModule } from 'src/core/messages/messages.module';
     { provide: SUPPLIER_REPOSITORY, useClass: SupplierRepositoryImpl}
     
   ],
+  exports:[SupplierMapper]
   
 })
 export class BaseModule {}
